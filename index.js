@@ -1,13 +1,13 @@
 const express = require("express");
 const path = require("path");
 const TelegramBot = require("node-telegram-bot-api");
-const TOKEN = "7458706047:AAERnxd502SntEgkA6gxP20MMvKd3Zef8Nw"; 
+const TOKEN = "7443733091:AAH-xL8Z25K3rfNxrImFfNYo_gQNt2ykGA8"; 
 const server = express();
 const bot = new TelegramBot(TOKEN, {
     polling: true
 });
 const port = process.env.PORT || 5000;
- const gameName = "FlappyBird";
+ const gameName = "connectDots";
 const queries = {};
 server.use(express.static(path.join(__dirname, 'FlappyBird')));
 bot.onText(/help/, (msg) => bot.sendMessage(msg.from.id, "Say /game if you want to play."));
