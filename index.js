@@ -18,7 +18,7 @@ bot.on("callback_query", function (query) {
     // } else {
         queries[query.id] = query;
         let gameurl = "https://expogames.github.io/FlappyBird/";
-        bot.answerInlineQuery({
+        bot.answerCallbackQuery({
             callback_query_id: query.id,
             url: gameurl
         });
