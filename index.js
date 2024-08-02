@@ -13,16 +13,16 @@ server.use(express.static(path.join(__dirname, 'FlappyBird')));
 bot.onText(/help/, (msg) => bot.sendMessage(msg.from.id, "Say /game if you want to play."));
 bot.onText(/start|game/, (msg) => bot.sendGame(msg.from.id, gameName));
 bot.on("callback_query", function (query) {
-    if (query.game_short_name !== gameName) {
-        bot.answerCallbackQuery(query.id, "Sorry, '" + query.game_short_name + "' is not available.");
-    } else {
+    // if (query.game_short_name !== gameName) {
+    //     bot.answerCallbackQuery(query.id, "Sorry, '" + query.game_short_name + "' is not available.");
+    // } else {
         queries[query.id] = query;
         let gameurl = "https://expogames.github.io/FlappyBird/";
-        bot.answerCallbackQuery({
+        bot.answerInlineQuery({
             callback_query_id: query.id,
             url: gameurl
         });
-    }
+    // }
 });
 bot.on("inline_query", function (iq) {
     bot.answerInlineQuery(iq.id, [{
